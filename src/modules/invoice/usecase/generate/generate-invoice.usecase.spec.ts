@@ -1,7 +1,6 @@
 import GenerateInvoiceUseCase from "./generate-invoice.usecase";
-import InvoiceRepository from "../repository/invoice.repository.interface";
 
-const MockRepository = (): InvoiceRepository => ({
+const MockRepository = () => ({
   find: jest.fn(),
   generate: jest.fn(),
 });

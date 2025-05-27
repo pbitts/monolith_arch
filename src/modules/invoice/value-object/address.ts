@@ -4,18 +4,17 @@ export default class Address {
   _complement: string;
   _city: string = "";
   _state: string = "";
-  _zip: string = "";
-  _zipcode: string = "";
+  _zipCode: string = "";
 
 
   constructor(street: string, number: string, complement: string, 
-            city: string, zip: string, zipcode: string,) {
+            city: string, state: string, zipCode: string,) {
     this._street = street;
     this._number = number;
     this._complement = complement;
     this._city = city;
-    this._zip = zip;
-    this._zipcode = zipcode;
+    this._state = state;
+    this._zipCode = zipCode;
     
 
   }
@@ -36,12 +35,13 @@ export default class Address {
     return this._city;
   }
 
-  get zip(): string {
-    return this._zip;
+  get state(): string {
+    return this._state;
   }
 
-  get zipcode(): string {
-    return this._zipcode;
+
+  get zipCode(): string {
+    return this._zipCode;
   }
 
 

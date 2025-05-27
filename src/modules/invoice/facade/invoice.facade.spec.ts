@@ -26,14 +26,14 @@ describe("ProductAdmFacade test", () => {
     const invoiceFacade = InvoiceFacadeFactory.create();
 
     const input = {
-        name: "John Doe",
+        name: "Wesley 1",
         document: "123456789",
-        street: "Main St",
+        street: "St 1",
         number: "100",
         complement: "Apt 1",
         city: "New York",
         state: "NY",
-        zipCode: "10001",
+        zipCode: "11111",
         items: [
           { id: "1", name: "Item 1", price: 100 },
           { id: "2", name: "Item 2", price: 200 },
@@ -59,14 +59,14 @@ describe("ProductAdmFacade test", () => {
     const invoiceFacade = InvoiceFacadeFactory.create();
 
     const input = {
-        name: "Jane Smith",
+        name: "Wesley 2",
         document: "987654321",
-        street: "Second St",
+        street: "St 2",
         number: "200",
-        complement: "Suite B",
+        complement: "Apt 2",
         city: "Los Angeles",
         state: "CA",
-        zipCode: "90001",
+        zipCode: "99999",
         items: [
           { id: "1", name: "Product A", price: 150 },
           { id: "2", name: "Product B", price: 250 },

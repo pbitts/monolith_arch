@@ -42,6 +42,6 @@ describe("FindInvoiceUseCase", () => {
     expect(result.address.city).toBe("City");
     expect(result.items.length).toBe(2);
     expect(result.total).toBe(300);
-    expect(result.createdAt).toStrictEqual(new Date("2023-01-01T00:00:00Z"));
+    expect(result.createdAt).toBe(invoice.createdAt);
   });
 });
