@@ -1,4 +1,5 @@
 import Id from "../../../@shared/domain/value-object/id.value-object";
+import Address from "../../../invoice/value-object/address";
 import { Product } from "../../domain/product.entity";
 import { PlaceOrderInputDto } from "./place-order.dto";
 import { PlaceOrderUseCase } from "./place-order.usecase";
@@ -174,12 +175,13 @@ describe("PlaceOrderUseCase unit test", () => {
         name: "Client 1",
         document: "0000",
         email: "client@email.com",
-        number: "1",
-        complement: "complement",
-        city: "Some city",
-        street: "Some street",
-        state: "Some state",
-        zipCode: "00",
+        address: new Address(
+           "1",
+        "complement",
+        "Some city",
+         "Some street",
+         "Some state",
+         "00")
       };
 
       
@@ -317,12 +319,12 @@ describe("PlaceOrderUseCase unit test", () => {
         expect(mockInvoiceFacade.generate).toHaveBeenCalledWith({
           name: clientProps.name,
           document: clientProps.document,
-          city: clientProps.city,
-          zipCode: clientProps.zipCode,
-          street: clientProps.street,
-          state: clientProps.state,
-          complement: clientProps.complement,
-          number: clientProps.number,
+          city: clientProps.address.city,
+          zipCode: clientProps.address.zipCode,
+          street: clientProps.address.street,
+          state: clientProps.address.state,
+          complement: clientProps.address.complement,
+          number: clientProps.address.number,
           items: [
             {
               id: products["1"].id.id,

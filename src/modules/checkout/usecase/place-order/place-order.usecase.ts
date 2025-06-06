@@ -54,12 +54,12 @@ export class PlaceOrderUseCase implements UseCaseInterface {
       name: client.name,
       email: client.email,
       address: new Address(
-        "Rua 123",
-        "99",
-        "Casa Verde",
-        "Criciúma",
-        "SC",
-        "88888-888",
+        client.address.city,
+        client.address.street,
+        client.address.number,
+        client.address.zipCode,
+        client.address.state,
+        client.address.complement
       ),
     });
 
