@@ -14,12 +14,13 @@ clientRoute.post("/", async (req: Request, res: Response) => {
         email: req.body.email,
         document: req.body.document,
         address: req.body.address
-      },
+      }
 
 
     const output = await facade.add(clientDto);
     res.send(output);
   } catch (err) {
+    console.log(err)
     res.status(500).send(err);
   }
 });

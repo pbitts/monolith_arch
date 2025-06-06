@@ -22,7 +22,7 @@ import {
     declare invoiceId: string;
   
     @BelongsTo(() => InvoiceModel)
-    declare invoice: InvoiceModel;
+    declare invoice: Awaited<InvoiceModel>;
   
     @Column
     declare name: string;

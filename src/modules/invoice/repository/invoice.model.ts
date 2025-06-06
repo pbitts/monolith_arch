@@ -35,7 +35,7 @@ export class InvoiceModel extends Model {
   declare zipCode: string;
 
   @HasMany(() => InvoiceItemModel)
-  declare items: InvoiceItemModel[];
+  declare items:  Awaited<InvoiceItemModel[]>;
 
   @CreatedAt
   declare createdAt: Date;

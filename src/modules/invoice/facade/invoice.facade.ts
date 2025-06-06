@@ -19,18 +19,13 @@ export default class InvoiceFacade implements InvoiceFacadeInterface {
     this._findUsecase = usecasesProps.findUseCase;
     this._generateUsecase = usecasesProps.generateUseCase;
   }
-    generate(input: GenerateInvoiceFacadeInputDto): Promise<GenerateInvoiceFacadeOutputDto> {
-        throw new Error("Method not implemented.");
-    }
-    find(input: FindInvoiceFacadeInputDTO): Promise<FindInvoiceFacadeOutputDTO> {
-        throw new Error("Method not implemented.");
-    }
 
-  generateInvoice(input: GenerateInvoiceFacadeInputDto): Promise<void> {
+
+  generate(input: GenerateInvoiceFacadeInputDto): Promise<GenerateInvoiceFacadeOutputDto> {
     // caso o dto do caso de uso for != do dto da facade, converter o dto da facade para o dto do caso de uso
     return this._generateUsecase.execute(input);
   }
-  findInvoice(
+  find(
     input: FindInvoiceFacadeInputDTO
   ): Promise<FindInvoiceFacadeOutputDTO> {
     return this._findUsecase.execute(input);

@@ -18,7 +18,12 @@ describe("E2E test for client", () => {
         name: "Wesley",
         email: "wesley@fc.com",
         document: "123",
-        address: "address1"
+        address :{street: "street",
+        number: "number",
+        city: "city",
+        complement: "complement",
+        state: "state",
+        zipcode: "zipCode"}
       });
 
     expect(response.status).toBe(200);

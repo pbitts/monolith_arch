@@ -13,7 +13,7 @@ invoiceRoute.get("/:id", async (req: Request, res: Response) => {
       id: req.params.id,
     };
 
-    const output = await facade.findInvoice(input);
+    const output = await facade.find(input);
 
     res.send(output);
   } catch (err) {

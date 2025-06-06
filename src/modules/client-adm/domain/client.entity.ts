@@ -13,6 +13,7 @@ type ClientProps = {
   updatedAt?: Date
 }
 
+
 export default class Client extends BaseEntity implements AggregateRoot {
 
   private _name: string

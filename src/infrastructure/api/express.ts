@@ -12,6 +12,7 @@ import { clientRoute } from "./routes/client.route";
 import { productRoute } from "./routes/product.route";
 import { invoiceRoute } from "./routes/invoice.route";
 import { checkoutRoute } from "./routes/checkout.route";
+import { InvoiceItemModel } from "../../modules/invoice/repository/invoice-items.model";
 
 
 export const app: Express = express();
@@ -30,7 +31,7 @@ async function setupDb() {
     logging: false,
   });
   await sequelize.addModels([ClientModel]);
-  await sequelize.addModels([InvoiceModel]);
+  await sequelize.addModels([InvoiceModel, InvoiceItemModel]);
   await sequelize.addModels([TransactionModel]);
   await sequelize.addModels([ProductModel]);
   await sequelize.addModels([AdmProductModel]);

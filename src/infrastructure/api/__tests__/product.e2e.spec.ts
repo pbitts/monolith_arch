@@ -23,6 +23,6 @@ describe("E2E test for product", () => {
 
     expect(response.status).toBe(200);
     expect(response.body.name).toBe("P1");
-    expect(response.body.purchasePriceprice).toBe(10);
+    expect(response.body.purchasePrice).toBe(10);
   });
 });
