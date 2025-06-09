@@ -1,15 +1,36 @@
-import { app, sequelize } from "../express";
+import { app } from "../express";
 import request from "supertest";
 import { ClientModel } from "../../../modules/client-adm/repository/client.model";
 import { ProductModel } from "../../../modules/product-adm/repository/product.model";
+import { Sequelize } from "sequelize-typescript";
+import { migrator } from "../../../test_migrations/config-migrations/migrator";
+import { Umzug } from "umzug";
 
 describe("E2E test for checkout", () => {
+  let sequelize: Sequelize;
+  let migration: Umzug<any>;
+
   beforeEach(async () => {
-    await sequelize.sync({ force: true });
+    sequelize = new Sequelize({
+      dialect: "sqlite",
+      storage: ":memory:",
+      logging: false,
+    });
+
+    // Adicione todos os models envolvidos nos testes
+    sequelize.addModels([
+      ClientModel,
+      ProductModel,
+      // Adicione outros models necessários aqui se usados no processo de checkout (ex: OrderModel, InvoiceModel etc.)
+    ]);
+
+    migration = migrator(sequelize);
+    await migration.up();
   });
 
-  afterAll(async () => {
-    await sequelize.close();
+  afterEach(async () => {
+    if (migration) await migration.down();
+    if (sequelize) await sequelize.close();
   });
 
   it("should do the checkout", async () => {
@@ -33,7 +54,6 @@ describe("E2E test for checkout", () => {
       name: "P1",
       description: "description",
       purchasePrice: 100,
-      salesPrice: 100,
       stock: 100,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -44,7 +64,6 @@ describe("E2E test for checkout", () => {
       name: "P2",
       description: "description",
       purchasePrice: 200,
-      salesPrice: 200,
       stock: 200,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -60,7 +79,7 @@ describe("E2E test for checkout", () => {
     expect(response.status).toEqual(200);
     expect(response.body.id).toBeDefined();
     expect(response.body.invoiceId).toBeDefined();
-    expect(response.body.total).toEqual(125);
+    expect(response.body.total).toEqual(125); // Considerando desconto aplicado
     expect(response.body.status).toEqual("approved");
   });
 });

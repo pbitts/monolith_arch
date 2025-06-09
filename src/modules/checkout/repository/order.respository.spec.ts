@@ -25,7 +25,7 @@ describe("OrderRepository test", () => {
     sequelize.addModels([OrderModel]);
     await sequelize.sync();
 
-    jest.useFakeTimers("modern");
+    jest.useFakeTimers();
     jest.setSystemTime(mockDate);
   });
 
