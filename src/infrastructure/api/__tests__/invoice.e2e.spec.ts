@@ -6,6 +6,12 @@ import Address from "../../../modules/invoice/value-object/address";
 import InvoiceItems from "../../../modules/invoice/domain/invoice-items.entity";
 import Invoice  from "../../../modules/invoice/domain/invoice.entity";
 import InvoiceRepository  from "../../../modules/invoice/repository/invoice.repository";
+import { migrator } from "../../../test_migrations/config-migrations/migrator";
+import { Umzug } from "umzug";
+import { Sequelize } from "sequelize-typescript";
+import { InvoiceItemModel } from "../../../modules/invoice/repository/invoice-items.model";
+import { InvoiceModel } from "../../../modules/invoice/repository/invoice.model";
+
 
 describe("E2E test for invoice", () => {
   beforeEach(async () => {

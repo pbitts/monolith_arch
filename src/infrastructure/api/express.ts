@@ -31,6 +31,7 @@ async function setupDb() {
     logging: false,
   });
   await sequelize.addModels([ClientModel]);
+  await sequelize.addModels([OrderModel]);
   await sequelize.addModels([InvoiceModel, InvoiceItemModel]);
   await sequelize.addModels([TransactionModel]);
   await sequelize.addModels([ProductModel]);

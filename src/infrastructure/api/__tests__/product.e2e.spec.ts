@@ -1,5 +1,10 @@
 import { app, sequelize } from "../express";
 import request from "supertest";
+import { Sequelize } from "sequelize-typescript";
+import { migrator } from "../../../test_migrations/config-migrations/migrator";
+import { Umzug } from "umzug";
+import ProductModel from "../../../modules/store-catalog/repository/product.model";
+
 
 describe("E2E test for product", () => {
   beforeEach(async () => {
