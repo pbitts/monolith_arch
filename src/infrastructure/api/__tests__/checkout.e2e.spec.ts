@@ -31,21 +31,23 @@ describe("E2E test for checkout", () => {
       updatedAt: new Date(),
     });
 
-    await ProductModel.create({
+    await ProductAdmModel.create({
       id: "1",
       name: "P1",
       description: "description",
       purchasePrice: 100,
+      salesPrice: 200,
       stock: 100,
       createdAt: new Date(),
       updatedAt: new Date(),
     });
 
-    await ProductModel.create({
+    await ProductAdmModel.create({
       id: "2",
       name: "P2",
       description: "description",
       purchasePrice: 200,
+      salesPrice: 200,
       stock: 200,
       createdAt: new Date(),
       updatedAt: new Date(),
@@ -61,7 +63,7 @@ describe("E2E test for checkout", () => {
     expect(response.status).toEqual(200);
     expect(response.body.id).toBeDefined();
     expect(response.body.invoiceId).toBeDefined();
-    expect(response.body.total).toEqual(125);
+    expect(response.body.total).toEqual(400);
     expect(response.body.status).toEqual("approved");
   });
 });

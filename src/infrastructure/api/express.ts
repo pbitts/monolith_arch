@@ -6,7 +6,7 @@ import { ClientModel } from "../../modules/client-adm/repository/client.model";
 import { InvoiceModel } from "../../modules/invoice/repository/invoice.model";
 import TransactionModel from "../../modules/payment/repository/transaction.model";
 import ProductModel from "../../modules/store-catalog/repository/product.model";
-import { ProductModel as AdmProductModel } from "../../modules/product-adm/repository/product.model";
+import { ProductAdmModel as AdmProductModel } from "../../modules/product-adm/repository/product.model";
 
 import { clientRoute } from "./routes/client.route";
 import { productRoute } from "./routes/product.route";
